@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <p id="Max0"></p>
+    <script>
+        var myObj = { name: "Mohammad", Age: 15, Grade: 8 };
+
+        var myJSON = JSON.stringify(myObj);
+
+        var newObj = JSON.parse(myJSON);
+
+        document.getElementById("Max0").innerHTML = newObj.name;
+    </script>
+
+    <p id="max"></p>
+    <script>
+        function myDisplayer(some) {
+
+            document.getElementById("max").innerHTML = some;
+
+        }
+        function sum(a, b) {
+            var sum = a + b;
+            myDisplayer(sum);
+        }
+        let myPromise = new Promise(function (myResolve, myReject) {
+            // producing code may take some time
+            let x = 0; // some code (try to change x to 5)
+            if (x == 0) {
+                myResolve("1"); // when successfull
+            } else {
+                myReject("Error"); // when error
+            }
+        });
+        // consuming code - must wait for fullfilled promise
+        myPromise.then(
+            function (value) { sum(5, 5); }, // code is successfull
+            function (error) { sum(error); } // code is error
+        );
+    </script>
+
+    <p id="Max00"></p>
+    <script>
+        const mypromise = new Promise(function (myResolve, myReject) {
+            setTimeout(function () {
+                myResolve("Hello Mohammad");
+            }, 5500);
+        });
+
+        //consuming code (must wait for a fullfilled promise)
+        myPromise.then(function (value) {
+            document.getElementById("Max00").innerHTML = value;
+        }
+        );
+    </script>
+
+</body>
+
+</html>
